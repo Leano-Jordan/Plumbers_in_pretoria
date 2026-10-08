@@ -1,0 +1,1 @@
+(() => {document.querySelectorAll('[data-event]').forEach((el) => {el.addEventListener('click', () => {const eventName=el.dataset.event;if(typeof window.gtag==='function')window.gtag('event',eventName);if(typeof window.plausible==='function')window.plausible(eventName);window.dispatchEvent(new CustomEvent('roscore:event',{detail:{name:eventName,href:el.href||null}}));});});})();
